@@ -5,14 +5,18 @@
 #include <unistd.h>
 #include <pthread.h>
 
-int process_count = 0;
-int thread_count = 0;
+#include "tcp_server.h"
+#include "udp_server.h"
+//int process_count = 0;
+//int thread_count = 0;
+
+
 
 /*************************************************************************
  * \thread
  *************************************************************************/
 void * pro_thread(void *pPara)
-{
+{/*
 	  while(1)
 	  {
         printf(" @T@: Thread process_count is %d\n", process_count);
@@ -22,7 +26,8 @@ void * pro_thread(void *pPara)
     	  thread_count++;
     	  
         sleep(3);
-    }
+    }*/
+	tcp_server();
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -35,7 +40,7 @@ int main(int argc, char* argv[])
     
     pthread_create(&p_mon, NULL, pro_thread, NULL);
     
-    while(1)
+    /*while(1)
     {
         printf(" @P@: Process process_count is %d\n", process_count);
     	  printf(" @P@: Process thread_count is %d\n", thread_count);
@@ -44,7 +49,8 @@ int main(int argc, char* argv[])
     	  process_count++;
     	  
     		sleep(2);
-    }
+    }*/
+	udp_server();
     
     return 0;
 }

@@ -42,22 +42,11 @@ int main(int argc, char* argv[])
     
     if (pid == 0)
     {
-        child_process();
+        tcp_server();
     }
     else
     {
-    	  printf("Parent process id is %d\n", getpid());
-    	  
-        while(1)
-        {
-    	      printf(" @P@: Child process child_count is %d\n", child_count);
-    	      printf(" @P@: Parent process parent_count is %d\n", parent_count);
-    	      printf("\n");
-    	      
-    	      parent_count++;
-    	      
-    		    sleep(3);
-        }
+	udp_server();
     }
     
     return 0;

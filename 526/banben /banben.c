@@ -35,13 +35,7 @@ int udp_client(char *x){
 
     char recv_buf[4096] = {0};
     struct sockaddr_in cli;
-   /*
-    if(argc < 2)
-    {
-        printf("Uasge:client[server IP address]\n");
-        return -1;
-    }*/
-   
+
     memset(recv_buf, 0, sizeof(recv_buf));
    
     cli.sin_family = AF_INET;
@@ -57,7 +51,7 @@ int udp_client(char *x){
    
     cLen = sizeof(cli);
     cSend = sendto(cClient, send_buf, strlen(send_buf), 0, (struct sockaddr*)&cli, cLen);
-    if((cSend < 0)||(sendto == 0))
+    if((cSend < 0)||(cSend == 0))
     {
         printf("sendto() failure!\n");
         return -1;
@@ -95,11 +89,6 @@ int tcp_client(char *y){
     FILE *dest;
     dest = fopen("1.txt","w+");
    
-   /* if(argc < 2)
-    {
-        printf("Uasge: client[server IP address]\n");
-        return -1;
-    }*/
    
     memset(cbuf, 0, sizeof(cbuf));
    
@@ -143,9 +132,9 @@ int jiexi(int z){
 
     FILE * file;
     int n=0,i=0,j=0;
-    char name[10][50]={0};
-    char director[10][50]={0};
-    char year[10][50]={0};
+    char name[10][50]={{0}};
+    char director[10][50]={{0}};
+    char year[10][50]={{0}};
     char cbuf[100]={0};
     char ch[50];
    
@@ -201,8 +190,8 @@ int jiexi(int z){
             			if(strncmp(year[i],ch,4) == 0){	        		
 				printf("Name @ :%s",name[i]);
 	    			printf("Director @ :%s\n",director[i]);
+				return 0;				
 				}
-			return 0;
 			break;
 		case 4:
 			printf("please input the director\n");
@@ -211,8 +200,8 @@ int jiexi(int z){
             			if(strncmp(director[i],ch,strlen(director[i])-2)==0){
 	        		printf("Name @ :%s",name[i]);
 	    			printf("Year @ :%s\n",year[i]);
+				return 0;				
 				}
-			return 0; 
 			break;
 		default:
 			exit(0);
@@ -226,7 +215,8 @@ int main(int argc,char **argv){
 	printf("1.检测版本是否有更新\n");
 	printf("2.更新版本\n");
 	printf("3.解析文件\n");	
-	printf("4.make your choice");
+	printf("4.退出\n");
+	printf("make your choice\t");
  	int a,b;
 	char *w;
 	w = malloc(30);
@@ -250,6 +240,9 @@ int main(int argc,char **argv){
 			printf("Your choice \t");
 			scanf("%d",&b);
 			jiexi(b);
+			break;
+		case 4:
+			exit(0);
 			break;
 		default:
 			exit(0);

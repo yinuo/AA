@@ -1,0 +1,28 @@
+**********************************************************
+Version: 1.02
+**********************************************************
+Name @: rangzidanfei
+Director @: jiangwen
+Year @: 2010
+
+Name @: feichengwurao2
+Director @: fengxiaogang
+Year @: 2010
+
+Name @: zhaoshiguer
+Director @: chenkaige
+Year @: 2010
+
+Name @: daxiaojianghu
+Director @: zhuyanping
+Year @: 2010
+
+Name @: tangshandadizhen
+Director @: fengxiaogang
+Year @: 2010
+
+Name @: guanyunchang
+Director @: zhuangwenqiang
+Year @: 2011
+
+**********************************************************
